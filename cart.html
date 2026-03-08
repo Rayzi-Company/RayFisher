@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Кошик — FishMaster</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+body{ font-family: Arial, sans-serif; margin:0; padding:0;}
+.container{ width:90%; margin:auto; padding:20px 0;}
+.cart-item{ display:flex; justify-content:space-between; margin-bottom:10px; border-bottom:1px solid #ccc; padding-bottom:5px;}
+.total{ font-weight:bold; margin-top:15px;}
+</style>
+</head>
+<body>
+
+<header style="background:#0a5f8f; color:white; padding:15px 20px;">🎣 FishMaster — Кошик</header>
+
+<div class="container">
+<h2>Ваші товари</h2>
+<div id="cart-items"></div>
+<div class="total">Загальна сума: <span id="cart-total">0</span> грн</div>
+<a href="products.html">Назад до товарів</a>
+</div>
+
+<script>
+function loadCartPage(){
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const cartItems = document.getElementById('cart-items');
+  const cartTotal = document.getElementById('cart-total');
+  cartItems.innerHTML = '';
+  let total = 0;
+  cart.forEach(item=>{
+    const div = document.createElement('div');
+    div.className = 'cart-item';
+    div.textContent = item.name + " - " + item.price + " грн";
+    cartItems.appendChild(div);
+    total += item.price;
+  });
+  cartTotal.textContent = total;
+}
+
+loadCartPage();
+</script>
+
+</body>
+</html>

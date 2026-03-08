@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Товари — FishMaster</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* Стиль для кнопки-посилання */
+.buy-button{
+  display:inline-block;
+  background:#0a5f8f;
+  color:white;
+  padding:12px 20px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+.buy-button:hover{
+  background:#083f60;
+  transform:scale(1.05);
+}
+</style>
+</head>
+<body>
+
+<header>🎣 FishMaster — Товари</header>
+
+<nav>
+<a href="index.html">Головна</a>
+<a href="products.html">Товари</a>
+<a href="sales.html">Акції</a>
+<a href="contacts.html">Контакти</a>
+</nav>
+
+<div class="container">
+<h2>Популярні товари</h2>
+
+<div class="products">
+
+<!-- Спінінг -->
+<div class="card">
+  <img src="img/rod.svg" alt="Спінінг">
+  <h3>Спінінг</h3>
+  <div class="price">1200 грн</div>
+  <button>Купити</button>
+</div>
+
+<!-- Котушка -->
+<div class="card">
+  <img src="img/carp.jpg" alt="Для Карпа">
+  <h3>Для Карпової ловлі</h3>
+  <div class="price">від 75 грн</div>
+  <button>Купити</button>
+</div>
+
+<!-- Приманка / Снасті -->
+<div class="card">
+  <img src="img/wobbler.jpg" alt="Воблери">
+  <h3>Воблери</h3>
+  <div class="price">від 40 грн</div>
+  <!-- Кнопка веде на wobblers.html -->
+  <a href="wobblers.html" class="buy-button">Купити</a>
+</div>
+
+</div>
+</div>
+
+<footer>
+Телефон: +380960839665
+</footer>
+
+</body>
+</html>

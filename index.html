@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>RayFish</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+body { font-family: Arial, sans-serif; margin:0; padding:0; }
+
+header, nav, .sale-banner, .container, footer { 
+  padding: 10px 20px; 
+}
+
+nav a { 
+  margin-right: 15px; 
+  text-decoration: none; 
+  color: #0a5f8f; 
+  font-weight: bold; 
+}
+
+nav a:hover { 
+  color: #ff9800; 
+}
+
+.sale-banner { 
+  background-color: #e0f7fa; 
+  padding: 15px; 
+  font-weight: bold; 
+  text-align: center; 
+}
+
+.cart-sidebar {
+  position: fixed;
+  right: -50%;
+  top:0;
+  height:100%;
+  width:50%;
+  background-color:#0a5f8f;
+  color:white;
+  padding:30px 20px;
+  box-shadow:-2px 0 15px rgba(0,0,0,0.5);
+  transition: right 0.3s ease;
+  z-index:1000;
+  overflow-y:auto;
+}
+
+.cart-sidebar.active{
+  right:0;
+}
+
+.cart-sidebar h2{
+  margin-top:0;
+  text-align:center;
+  font-size:24px;
+}
+
+.close-cart{
+  position:absolute;
+  top:10px;
+  left:10px;
+  background:none;
+  border:none;
+  color:white;
+  font-size:28px;
+  cursor:pointer;
+}
+
+.close-cart:hover{
+  color:#ff9800;
+}
+
+.checkout-btn{
+  display:block;
+  text-align:center;
+  margin-top:20px;
+  padding:12px;
+  background-color:#ff9800;
+  color:black;
+  text-decoration:none;
+  font-weight:bold;
+  border-radius:5px;
+  font-size:18px;
+}
+
+.checkout-btn:hover{
+  background-color:#e68900;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>🎣 RayFish — Рибацький магазин</header>
+
+<nav>
+<a href="index.html">Головна</a>
+<a href="products.html">Товари</a>
+<a href="sales.html">Акції</a>
+<a href="contacts.html">Контакти</a>
+<button class="cart-toggle-btn">🛒 Корзина</button>
+</nav>
+
+<div class="sale-banner">
+Кращі снасті для риболовлі!
+</div>
+
+<div class="container">
+<h1>Ласкаво просимо у RayFish</h1>
+<p>Все для справжніх рибалок.</p>
+</div>
+
+<div class="cart-sidebar" id="cartSidebar">
+
+<button class="close-cart" id="closeCart">✖</button>
+
+<h2>Корзина</h2>
+
+<p>Корзина порожня</p>
+
+<a href="checkout.html" class="checkout-btn">
+Оформити
+</a>
+
+</div>
+
+<footer>
+Телефон: +380960839665
+</footer>
+
+<script>
+
+const cartBtn = document.querySelector('.cart-toggle-btn');
+const cartSidebar = document.getElementById('cartSidebar');
+const closeCartBtn = document.getElementById('closeCart');
+
+cartBtn.addEventListener('click', () => {
+  cartSidebar.classList.add('active');
+});
+
+closeCartBtn.addEventListener('click', () => {
+  cartSidebar.classList.remove('active');
+});
+
+</script>
+
+</body>
+</html>
