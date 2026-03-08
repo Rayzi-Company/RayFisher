@@ -32,61 +32,12 @@ nav a:hover {
   text-align: center; 
 }
 
-.cart-sidebar {
-  position: fixed;
-  right: -50%;
-  top:0;
-  height:100%;
-  width:50%;
-  background-color:#0a5f8f;
-  color:white;
-  padding:30px 20px;
-  box-shadow:-2px 0 15px rgba(0,0,0,0.5);
-  transition: right 0.3s ease;
-  z-index:1000;
-  overflow-y:auto;
+.container h1 {
+  margin-top: 0;
 }
 
-.cart-sidebar.active{
-  right:0;
-}
-
-.cart-sidebar h2{
-  margin-top:0;
-  text-align:center;
-  font-size:24px;
-}
-
-.close-cart{
-  position:absolute;
-  top:10px;
-  left:10px;
-  background:none;
-  border:none;
-  color:white;
-  font-size:28px;
-  cursor:pointer;
-}
-
-.close-cart:hover{
-  color:#ff9800;
-}
-
-.checkout-btn{
-  display:block;
-  text-align:center;
-  margin-top:20px;
-  padding:12px;
-  background-color:#ff9800;
-  color:black;
-  text-decoration:none;
-  font-weight:bold;
-  border-radius:5px;
-  font-size:18px;
-}
-
-.checkout-btn:hover{
-  background-color:#e68900;
+.container p {
+  margin-bottom: 0;
 }
 
 /* --- Адаптивність для мобільного --- */
@@ -107,22 +58,6 @@ nav a:hover {
   }
   .container p {
     font-size: 14px;
-  }
-  .cart-sidebar {
-    width: 80%; /* компактніша корзина на телефон */
-    padding: 20px 15px;
-  }
-  .cart-sidebar h2 {
-    font-size: 20px;
-  }
-  .close-cart {
-    font-size: 24px;
-    top:8px;
-    left:8px;
-  }
-  .checkout-btn {
-    font-size: 16px;
-    padding: 10px;
   }
 }
 </style>
@@ -146,22 +81,11 @@ nav a:hover {
 <div class="container">
 <h1>Ласкаво просимо у RayFish</h1>
 <p>Все для справжніх рибалок.</p>
-<button class="cart-toggle-btn" style="margin-top:15px; padding:10px 15px; font-size:16px; background:#ff9800; color:black; border:none; border-radius:5px;">Відкрити корзину</button>
 </div>
 
-<script>
-const cartBtn = document.querySelector('.cart-toggle-btn');
-const cartSidebar = document.getElementById('cartSidebar');
-const closeCartBtn = document.getElementById('closeCart');
-
-cartBtn.addEventListener('click', () => {
-  cartSidebar.classList.add('active');
-});
-
-closeCartBtn.addEventListener('click', () => {
-  cartSidebar.classList.remove('active');
-});
-</script>
+<footer>
+Телефон: +380960839665
+</footer>
 
 </body>
 </html>
