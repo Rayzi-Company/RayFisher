@@ -5,7 +5,6 @@
 <title>RayFish — Воблери</title>
 <link rel="stylesheet" href="css/style.css">
 <style>
-/* Загальні стилі */
 body{font-family: Arial, sans-serif; margin:0; padding:0;}
 
 /* Повідомлення */
@@ -27,62 +26,61 @@ body{font-family: Arial, sans-serif; margin:0; padding:0;}
 /* Кнопка корзини */
 .cart-toggle-btn{
   position: fixed;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
+  bottom: 20px;
+  right: 20px;
   background: #0a5f8f;
   color: white;
-  padding: 14px 18px;
-  border-radius: 12px 0 0 12px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 24px;
+  border: none;
   cursor: pointer;
-  font-weight: bold;
   z-index: 1000;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
 }
 .cart-toggle-btn:hover{
   background: #083f60;
-  transform: translateY(-50%) scale(1.1);
+  transform: scale(1.1);
 }
 
-/* Бокова корзина */
+/* Корзина на весь екран */
 .cart-sidebar{
   position: fixed;
   top: 0;
-  right: -55%;
-  width: 55%;
+  left: 0;
+  width: 100%;
   height: 100%;
   background: #ffffff;
-  border-radius: 20px 0 0 20px;
-  box-shadow: -5px 0 20px rgba(0,0,0,0.3);
-  padding: 25px;
+  padding: 20px;
   box-sizing: border-box;
-  transition: right 0.5s ease;
   z-index: 999;
   overflow-y: auto;
+  transform: translateY(-100%);
+  transition: transform 0.5s ease;
 }
 .cart-sidebar.active{
-  right: 0;
+  transform: translateY(0);
 }
 .cart-sidebar h2{
   margin-top: 0;
-  font-size: 22px;
+  font-size: 24px;
   text-align: center;
   color: #0a5f8f;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
-/* Хрестик для закриття корзини */
+/* Хрестик для закриття */
 .cart-sidebar #closeCart{
   position: absolute;
-  top: 10px;
-  left: 15px;
+  top: 15px;
+  right: 20px;
   background: none;
   border: none;
-  font-size: 26px;
+  font-size: 28px;
   cursor: pointer;
 }
 
-/* Сторінка товарів */
+/* Товари */
 .container{
   width: 90%;
   margin: auto;
@@ -102,7 +100,6 @@ body{font-family: Arial, sans-serif; margin:0; padding:0;}
 }
 .card img{
   width: 100%;
-  height: auto;
   border-radius: 6px;
 }
 .price{
@@ -124,6 +121,21 @@ body{font-family: Arial, sans-serif; margin:0; padding:0;}
   background:#083f60;
   transform:scale(1.05);
 }
+
+/* Темний фон при відкритті корзини */
+.cart-overlay{
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 998;
+  display: none;
+}
+.cart-overlay.active{
+  display: block;
+}
 </style>
 </head>
 <body>
@@ -141,16 +153,18 @@ body{font-family: Arial, sans-serif; margin:0; padding:0;}
 <h2>Великий вибір воблерів</h2>
 
 <div class="products" id="products"></div>
-
 </div>
 
 <!-- Повідомлення -->
 <div id="message"></div>
 
-<!-- Кнопка корзини -->
-<button class="cart-toggle-btn">🛒 Корзина</button>
+<!-- Темний фон -->
+<div class="cart-overlay" id="cartOverlay"></div>
 
-<!-- Бокова корзина з хрестиком -->
+<!-- Кнопка корзини -->
+<button class="cart-toggle-btn">🛒</button>
+
+<!-- Корзина -->
 <div class="cart-sidebar" id="cartSidebar">
 <button id="closeCart">✖</button>
 <h2>Корзина</h2>
@@ -163,7 +177,7 @@ body{font-family: Arial, sans-serif; margin:0; padding:0;}
 </footer>
 
 <script>
-// Генерація 45 карточок
+// Генерація 45 товарів
 const products = document.getElementById("products");
 for(let i=1;i<=45;i++){
   products.innerHTML += `
@@ -186,11 +200,22 @@ function showMessage(text){
 // Відкриття/закриття корзини
 const cartBtn = document.querySelector(".cart-toggle-btn");
 const cartSidebar = document.getElementById("cartSidebar");
+const cartOverlay = document.getElementById("cartOverlay");
 const cartItemsContainer = document.getElementById("cartItems");
 const closeCart = document.getElementById("closeCart");
 
-cartBtn.onclick = () => cartSidebar.classList.toggle("active");
-closeCart.onclick = () => cartSidebar.classList.remove("active");
+function openCart(){
+  cartSidebar.classList.add("active");
+  cartOverlay.classList.add("active");
+}
+function closeCartFunc(){
+  cartSidebar.classList.remove("active");
+  cartOverlay.classList.remove("active");
+}
+
+cartBtn.onclick = openCart;
+closeCart.onclick = closeCartFunc;
+cartOverlay.onclick = closeCartFunc;
 
 // Додавання товарів у корзину
 document.addEventListener("click", function(e){
