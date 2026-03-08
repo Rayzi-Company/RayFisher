@@ -5,60 +5,111 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RayFish</title>
 
-<link rel="stylesheet" href="style.css">
-
 <style>
-body { font-family: Arial, sans-serif; margin:0; padding:0; }
-
-header, nav, .sale-banner, .container, footer { 
-  padding: 10px 20px; 
+*{
+  box-sizing:border-box;
 }
 
-nav a { 
-  margin-right: 15px; 
-  text-decoration: none; 
-  color: #0a5f8f; 
-  font-weight: bold; 
+body{
+  font-family: Arial, sans-serif;
+  margin:0;
+  background:#f5f7fa;
 }
 
-nav a:hover { 
-  color: #ff9800; 
+/* header */
+header{
+  background:#0a5f8f;
+  color:white;
+  text-align:center;
+  padding:15px;
+  font-size:22px;
+  font-weight:bold;
 }
 
-.sale-banner { 
-  background-color: #e0f7fa; 
-  padding: 15px; 
-  font-weight: bold; 
-  text-align: center; 
+/* menu */
+nav{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:15px;
+  padding:15px;
 }
 
-.container h1 {
-  margin-top: 0;
+nav a{
+  text-decoration:none;
+  padding:12px 20px;
+  border-radius:10px;
+  font-size:16px;
+  font-weight:bold;
+  color:white;
+  background: linear-gradient(135deg, #0a5f8f, #00bfff);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
 }
 
-.container p {
-  margin-bottom: 0;
+nav a:hover{
+  background: linear-gradient(135deg, #ff9800, #ffb74d);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 8px rgba(0,0,0,0.3);
 }
 
-/* --- Адаптивність для мобільного --- */
-@media(max-width: 600px){
-  header, nav, .sale-banner, .container, footer {
-    padding: 8px 10px;
+/* банер */
+.sale-banner{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin:20px 0;
+}
+
+.sale-banner img{
+  max-width:90%;
+  height:auto;
+  border-radius:15px;
+  box-shadow:0 8px 15px rgba(0,0,0,0.2);
+}
+
+/* текст під банером */
+.container{
+  padding:20px;
+  text-align:center;
+}
+
+.container h1{
+  font-size:24px;
+  margin-bottom:10px;
+}
+
+.container p{
+  font-size:16px;
+  color:#555;
+}
+
+/* footer */
+footer{
+  background:#0a5f8f;
+  color:white;
+  text-align:center;
+  padding:15px;
+  font-size:14px;
+}
+
+/* мобільна адаптація */
+@media(max-width:600px){
+
+  nav{
+    flex-direction:column;
   }
-  nav a {
-    margin-right: 10px;
-    font-size: 14px;
+
+  nav a{
+    width:90%;
+    font-size:16px;
+    padding:12px;
   }
-  .sale-banner {
-    font-size: 14px;
-    padding: 10px;
+
+  .sale-banner img{
+    max-width:100%;
   }
-  .container h1 {
-    font-size: 18px;
-  }
-  .container p {
-    font-size: 14px;
-  }
+
 }
 </style>
 </head>
@@ -68,23 +119,22 @@ nav a:hover {
 <header>🎣 RayFish — Рибацький магазин</header>
 
 <nav>
-<a href="index.html">Головна</a>
-<a href="products.html">Товари</a>
-<a href="sales.html">Акції</a>
-<a href="contacts.html">Контакти</a>
+  <a href="index.html">Головна</a>
+  <a href="products.html">Товари</a>
+  <a href="contacts.html">Контакти</a>
 </nav>
 
 <div class="sale-banner">
-Кращі снасті для риболовлі!
+  <img src="https://i.pinimg.com/736x/90/58/0f/90580fcee340e72d07f487da2e78a49a.jpg" alt="Банер RayFish">
 </div>
 
 <div class="container">
-<h1>Ласкаво просимо у RayFish</h1>
-<p>Все для справжніх рибалок.</p>
+  <h1>Ласкаво просимо у RayFish</h1>
+  <p>Все для справжніх рибалок.</p>
 </div>
 
 <footer>
-Телефон: +380960839665
+  Телефон: +380960839665
 </footer>
 
 </body>
