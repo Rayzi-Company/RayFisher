@@ -2,6 +2,7 @@
 <html lang="uk">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RayFish</title>
 
 <link rel="stylesheet" href="style.css">
@@ -87,8 +88,44 @@ nav a:hover {
 .checkout-btn:hover{
   background-color:#e68900;
 }
-</style>
 
+/* --- Адаптивність для мобільного --- */
+@media(max-width: 600px){
+  header, nav, .sale-banner, .container, footer {
+    padding: 8px 10px;
+  }
+  nav a {
+    margin-right: 10px;
+    font-size: 14px;
+  }
+  .sale-banner {
+    font-size: 14px;
+    padding: 10px;
+  }
+  .container h1 {
+    font-size: 18px;
+  }
+  .container p {
+    font-size: 14px;
+  }
+  .cart-sidebar {
+    width: 80%; /* компактніша корзина на телефон */
+    padding: 20px 15px;
+  }
+  .cart-sidebar h2 {
+    font-size: 20px;
+  }
+  .close-cart {
+    font-size: 24px;
+    top:8px;
+    left:8px;
+  }
+  .checkout-btn {
+    font-size: 16px;
+    padding: 10px;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -109,16 +146,10 @@ nav a:hover {
 <div class="container">
 <h1>Ласкаво просимо у RayFish</h1>
 <p>Все для справжніх рибалок.</p>
+<button class="cart-toggle-btn" style="margin-top:15px; padding:10px 15px; font-size:16px; background:#ff9800; color:black; border:none; border-radius:5px;">Відкрити корзину</button>
 </div>
-
-</div>
-
-<footer>
-Телефон: +380960839665
-</footer>
 
 <script>
-
 const cartBtn = document.querySelector('.cart-toggle-btn');
 const cartSidebar = document.getElementById('cartSidebar');
 const closeCartBtn = document.getElementById('closeCart');
@@ -130,7 +161,6 @@ cartBtn.addEventListener('click', () => {
 closeCartBtn.addEventListener('click', () => {
   cartSidebar.classList.remove('active');
 });
-
 </script>
 
 </body>
