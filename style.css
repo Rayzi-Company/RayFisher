@@ -1,0 +1,120 @@
+/* Загальні стилі */
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:linear-gradient(#cfefff,#ffffff);
+}
+
+/* Хедер */
+header{
+    background:#0a5f8f;
+    color:white;
+    padding:30px;
+    text-align:center;
+    font-size:40px;
+    font-weight:bold;
+}
+
+/* Меню навігації */
+nav{
+    background:#083f60;
+    padding:15px;
+    text-align:center;
+}
+
+nav a{
+    color:white;
+    margin:20px;
+    font-size:20px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#ffd700;
+    transform:scale(1.1);
+}
+
+/* Основний контейнер */
+.container{
+    padding:40px;
+    text-align:center;
+}
+
+/* Секція товарів */
+.products{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:30px;
+}
+
+/* Картка товару */
+.card{
+    background:white;
+    width:260px;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:scale(1.05);
+}
+
+.card img{
+    width:120px;
+    height:120px;
+}
+
+.price{
+    font-size:22px;
+    color:green;
+    margin:10px;
+}
+
+/* Кнопки */
+button{
+    background:#0a5f8f;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    font-size:16px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#083f60;
+    transform:scale(1.05);
+}
+
+/* Банер з новим зображенням */
+.sale-banner{
+    background:url('https://dedovisnasti.dp.ua/files/resized/slides/fishing-tools2.1920x320.center.center.jpg') center/cover no-repeat;
+    color:white;
+    padding:140px 20px;
+    font-size:45px;
+    font-weight:bold;
+    text-shadow:2px 2px 10px black;
+    text-align:center;
+    animation:bannerZoom 6s infinite alternate;
+}
+
+@keyframes bannerZoom{
+    0%{background-size:100%;}
+    100%{background-size:110%;}
+}
+
+/* Футер */
+footer{
+    background:#0a5f8f;
+    color:white;
+    padding:20px;
+    text-align:center;
+    margin-top:40px;
+    font-size:18px;
+}
