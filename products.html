@@ -2,174 +2,36 @@
 <html lang="uk">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Товари — FishMaster</title>
-
+<link rel="stylesheet" href="style.css">
 <style>
-*{
-  box-sizing:border-box;
-}
-
-body{
-  font-family: Arial, sans-serif;
-  margin:0;
-  background:#f5f7fa;
-}
-
-/* header */
-header{
-  background:#0a5f8f;
-  color:white;
-  text-align:center;
-  padding:15px;
-  font-size:22px;
-  font-weight:bold;
-}
-
-/* menu */
-nav{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:15px;
-  padding:15px;
-}
-
-nav a{
-  text-decoration:none;
-  padding:12px 20px;
-  border-radius:10px;
-  font-size:16px;
-  font-weight:bold;
-  color:white;
-  background: linear-gradient(135deg, #0a5f8f, #00bfff);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-  transition: all 0.3s ease;
-}
-
-nav a:hover{
-  background: linear-gradient(135deg, #ff9800, #ffb74d);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 8px rgba(0,0,0,0.3);
-}
-
-/* контейнер */
-.container{
-  max-width:1000px;
-  margin:30px auto;
-  padding:20px;
-}
-
-/* центрований заголовок */
-.container h2{
-  font-size:24px;
-  margin-bottom:20px;
-  text-align:center;
-}
-
-/* товари */
-.products{
-  display:flex;
-  flex-wrap:wrap;
-  gap:20px;
-  justify-content:center;
-}
-
-.card{
-  background:white;
-  border-radius:15px;
-  box-shadow:0 6px 15px rgba(0,0,0,0.1);
-  padding:15px;
-  width:220px;
-  text-align:center;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card:hover{
-  transform: translateY(-5px);
-  box-shadow:0 10px 20px rgba(0,0,0,0.2);
-}
-
-.card img{
-  width:100%;
-  border-radius:10px;
-  margin-bottom:10px;
-}
-
-.card h3{
-  font-size:18px;
-  margin:10px 0;
-}
-
-.card .price{
-  font-size:16px;
-  color:#555;
-  margin-bottom:10px;
-}
-
-/* кнопка купити */
-.buy-button, .card button{
+/* Стиль для кнопки-посилання */
+.buy-button{
   display:inline-block;
-  background: linear-gradient(135deg, #0a5f8f, #00bfff);
-  color:white;
-  padding:12px 20px;
-  border-radius:10px;
-  text-decoration:none;
-  font-weight:bold;
-  border:none;
-  cursor:pointer;
-  transition: all 0.3s ease;
-}
-
-.buy-button:hover, .card button:hover{
-  background: linear-gradient(135deg, #ff9800, #ffb74d);
-  transform: scale(1.05);
-}
-
-/* footer */
-footer{
   background:#0a5f8f;
   color:white;
-  text-align:center;
-  padding:15px;
-  font-size:14px;
+  padding:12px 20px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:bold;
+  transition:0.3s;
 }
 
-/* мобільна адаптація */
-@media(max-width:600px){
-
-  nav{
-    flex-direction:column;
-  }
-
-  nav a{
-    width:90%;
-    font-size:16px;
-    padding:12px;
-  }
-
-  .products{
-    flex-direction:column;
-    align-items:center;
-  }
-
-  .card{
-    width:90%;
-  }
-
+.buy-button:hover{
+  background:#083f60;
+  transform:scale(1.05);
 }
 </style>
 </head>
-
 <body>
 
 <header>🎣 FishMaster — Товари</header>
 
 <nav>
-  <a href="index.html">Головна</a>
-  <a href="products.html">Товари</a>
-  <a href="sales.html">Акції</a>
-  <a href="contacts.html">Контакти</a>
+<a href="index.html">Головна</a>
+<a href="products.html">Товари</a>
+<a href="sales.html">Акції</a>
+<a href="contacts.html">Контакти</a>
 </nav>
 
 <div class="container">
@@ -177,11 +39,19 @@ footer{
 
 <div class="products">
 
+<!-- Спінінг -->
+<div class="card">
+  <img src="img/rod.svg" alt="Спінінг">
+  <h3>Спінінг</h3>
+  <div class="price">1200 грн</div>
+  <button>Купити</button>
+</div>
+
 <!-- Котушка -->
 <div class="card">
   <img src="carp.jpg" alt="Для Карпа">
   <h3>Для Карпової ловлі</h3>
-  <div class="price">від 700 грн</div>
+  <div class="price">від 75 грн</div>
   <button>Купити</button>
 </div>
 
@@ -189,7 +59,8 @@ footer{
 <div class="card">
   <img src="wobbler.jpg" alt="Воблери">
   <h3>Воблери</h3>
-  <div class="price">50 грн</div>
+  <div class="price">від 40 грн</div>
+  <!-- Кнопка веде на wobblers.html -->
   <a href="wobblers.html" class="buy-button">Купити</a>
 </div>
 
